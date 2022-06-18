@@ -1,5 +1,5 @@
 import React, {useState, useCallback} from 'react';
-import {View} from 'react-native';
+import {View, Text, KeyboardAvoidingView} from 'react-native';
 import {
   InputV1,
   TypographyV1,
@@ -42,51 +42,64 @@ const Index = props => {
       <Row>
         <BackgroundTopV1 title="Masuk" />
       </Row>
-      <KeyboardAvoidingWrapperV1>
-        <Row marginHorizontal={12}>
-          <Row marginTop={3}>
-            <InputV1
-              label="Nama Pengguna atau Email"
-              leftImage={require('@assets/images/Person.png')}
-              placeholder="masukkan nama pengguna atau email"
-              value={username}
-              onChangeText={value => handleChangeTextInput('username', value)}
-              returnKeyType="next"
-            />
+
+      <KeyboardAvoidingView
+        style={{
+          flex: 1,
+        }}
+        enabled>
+        <Row
+          flex={1}
+          marginHorizontal={1.5}
+          paddingTop={4}
+          paddingBottom={2}
+          flexDirection="column"
+          justifyContent="space-between">
+          <Row>
+            <Row marginBottom={3}>
+              <InputV1
+                label="Nama Pengguna atau Email"
+                leftImage={require('@assets/images/Person.png')}
+                placeholder="masukkan nama pengguna atau email"
+                value={username}
+                onChangeText={value => handleChangeTextInput('username', value)}
+                returnKeyType="next"
+              />
+            </Row>
+
+            <Row marginBottom={2}>
+              <InputV1
+                label="Kata Sandi"
+                leftImage={require('@assets/images/Lock.png')}
+                rightImage={
+                  hidePassword
+                    ? require('@assets/images/eyeoff.png')
+                    : require('@assets/images/eye.png')
+                }
+                placeholder="masukkan kata sandi"
+                value={password}
+                onChangeText={value => handleChangeTextInput('password', value)}
+                secureTextEntry={hidePassword}
+                returnKeyType="done"
+                onPressRight={handleHidePassword}
+              />
+            </Row>
+
+            <Row flexDirection="row" justifyContent="flex-end">
+              <TypographyV1 type="link" onPressLink={handlePressForgotPassword}>
+                Lupa Kata Sandi?
+              </TypographyV1>
+            </Row>
           </Row>
 
-          <Row marginTop={3}>
-            <InputV1
-              label="Kata Sandi"
-              leftImage={require('@assets/images/Lock.png')}
-              rightImage={
-                hidePassword
-                  ? require('@assets/images/eyeoff.png')
-                  : require('@assets/images/eye.png')
-              }
-              placeholder="masukkan kata sandi"
-              value={password}
-              onChangeText={value => handleChangeTextInput('password', value)}
-              secureTextEntry={hidePassword}
-              returnKeyType="done"
-              onPressRight={handleHidePassword}
-            />
-          </Row>
-
-          <Row marginTop={1} flexDirection="row" justifyContent="flex-end">
-            <TypographyV1 type="link" onPressLink={handlePressForgotPassword}>
-              Lupa Kata Sandi?
-            </TypographyV1>
-          </Row>
-
-          <Row marginTop={2}>
+          <Row>
             <ButtonV1 variant="primary" size="block">
               Masuk
             </ButtonV1>
           </Row>
 
-          <Row marginTop={3}>
-            <View
+          <Row>
+            <Row
               style={{
                 flexDirection: 'row',
                 justifyContent: 'center',
@@ -100,7 +113,7 @@ const Index = props => {
                   marginRight: 10,
                 }}
               />
-              <TypographyV1 type="text" textAlign="center">
+              <TypographyV1 type="text" textAlign="center" variant="secondary">
                 Atau
               </TypographyV1>
               <View
@@ -111,14 +124,14 @@ const Index = props => {
                   marginLeft: 10,
                 }}
               />
-            </View>
+            </Row>
           </Row>
 
-          <Row marginTop={3}>
+          <Row>
             <SocialMediaListV1 />
           </Row>
 
-          <Row marginTop={3} flexDirection="row" justifyContent="center">
+          <Row flexDirection="row" justifyContent="center">
             <TypographyV1 type="text" textAlign="center">
               Belum mempunyai akun ?{' '}
             </TypographyV1>
@@ -130,7 +143,7 @@ const Index = props => {
             </TypographyV1>
           </Row>
         </Row>
-      </KeyboardAvoidingWrapperV1>
+      </KeyboardAvoidingView>
     </Container>
   );
 };

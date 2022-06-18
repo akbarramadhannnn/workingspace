@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {memo, useCallback} from 'react';
 import {Container, Text} from './TopStyled';
+import {HeaderV1} from '@components';
 
-const Index = ({title}) => {
+const Index = ({title = '', isHeader = false, textColorHeader, textHeader}) => {
   return (
-    <Container>
+    <Container isHeader={isHeader}>
+      {isHeader && (
+        <HeaderV1 textColorHeader={textColorHeader} textHeader={textHeader} />
+      )}
       <Text>{title}</Text>
     </Container>
   );
 };
 
-export default Index;
+export default memo(Index);

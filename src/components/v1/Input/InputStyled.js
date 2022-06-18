@@ -21,7 +21,7 @@ export const JustifyContent = styled.View`
 `;
 
 export const LeftImage = styled.Image`
-  width: ${width * 0.060}px;
+  width: ${width * 0.06}px;
   height: ${width * 0.055}px;
   margin-horizontal: ${hp(1.5)}px;
   margin-vertical: ${hp(2)}px;
@@ -50,6 +50,16 @@ export const TextInput = styled.TextInput`
   font-size: ${normalize(13)}px;
   font-family: Poppins-Medium;
   color: #747474;
+`;
+
+export const OtpTextInput = styled.TextInput`
+  width: 100%;
+  padding: 0px;
+  font-size: ${normalize(20)}px;
+  font-family: Poppins-Medium;
+  color: #747474;
+  align-content: center;
+  text-align: center;
 `;
 
 export const RightImage = styled.Image`

@@ -35,4 +35,5 @@ export const Title = styled.Text`
   text-align: center;
   font-weight: 700;
   font-family: Poppins-Regular;
+  color: rgba(0, 0, 0, 0.4);
 `;

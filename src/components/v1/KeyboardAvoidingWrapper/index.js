@@ -1,12 +1,12 @@
 import React, {memo} from 'react';
-import {KeyboardAvoidingView, ScrollView} from 'react-native';
+import {KeyboardAvoidingView} from 'react-native';
 
 const KeyboardAvoidingWrapper = ({children}) => {
   return (
     <KeyboardAvoidingView
       style={{flex: 1}}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-      <ScrollView>{children}</ScrollView>
+      behavior={Platform.OS === 'ios' ? 'height' : 'height'}>
+      {children}
     </KeyboardAvoidingView>
   );
 };

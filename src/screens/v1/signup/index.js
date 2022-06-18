@@ -40,7 +40,7 @@ const Index = props => {
   return (
     <Container>
       <Row>
-        <BackgroundTopV1 title="Daftar" />
+        <BackgroundTopV1 title="Daftar" isHeader={true} />
       </Row>
       <KeyboardAvoidingWrapperV1>
         <Row marginHorizontal={12}>

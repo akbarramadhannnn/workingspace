@@ -6,10 +6,10 @@ export const Container = styled.View`
   width: 100%;
   background-color: ${colors.primary};
   height: ${wp(45)}px;
-  padding-horizontal: ${hp(1.8)}px;
-  padding-vertical: ${hp(1)}px;
+  padding-horizontal: ${hp(1.5)}px;
+  // padding-vertical: ${hp(.4)}px;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: ${props => (props.isHeader ? 'space-between' : 'flex-end')};
 `;
 
 export const Text = styled.Text`

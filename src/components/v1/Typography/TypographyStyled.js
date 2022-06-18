@@ -16,7 +16,7 @@ export const Text = styled.Text`
     css`
       font-size: ${normalize(14)}px;
       font-family: Poppins-Medium;
-      color: ${colors.primary};
+      color: ${props.isDisabled ? colors.lightgrey : colors.primary};
     `}
 
   ${props =>
@@ -24,7 +24,12 @@ export const Text = styled.Text`
     css`
       font-size: ${normalize(14)}px;
       font-family: Poppins-Medium;
-      color: ${colors.textcolor};
+      color: ${props =>
+        props.variant === 'primary'
+          ? colors.primary
+          : props.variant === 'secondary'
+          ? colors.lightViolet
+          : colors.textcolor};
     `}
 
   text-align: ${props => (props.textAlign ? props.textAlign : 'left')};

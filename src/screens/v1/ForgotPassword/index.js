@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, KeyboardAvoidingView, TouchableOpacity} from 'react-native';
+import React, {useCallback, useEffect, useRef} from 'react';
+import {View, KeyboardAvoidingView, TouchableOpacity, Text} from 'react-native';
 import {
   InputV1,
   TypographyV1,
@@ -8,20 +8,45 @@ import {
   BackgroundTopV1,
 } from '@components';
 import {Container, Row} from '@layout';
+import Routes from '@routes';
 
-const Index = () => {
+const Index = props => {
+  const {navigation} = props;
+  const refInput = useRef();
+
+  useEffect(() => {
+    refInput.current.focus();
+  }, []);
+
+  const handlePressSend = useCallback(() => {
+    navigation.navigate(Routes.OtpScreen);
+  }, []);
+
   return (
     <Container>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : null}
-        keyboardVerticalOffset={Platform.select({
-          ios: 0,
-          android: 200,
-        })}>
-        <Row>
-          <BackgroundTopV1 title="Ganti Kata Sandi" />
+      <Row>
+        <BackgroundTopV1 title="Ganti Kata Sandi" isHeader={true} />
+      </Row>
+
+      <Row marginHorizontal={1.5}>
+        <Row marginTop="3">
+          <InputV1
+            refInput={refInput}
+            label="Email"
+            leftImage={require('@assets/images/Message.png')}
+            placeholder="masukkan email"
+            // value={username}
+            // onChangeText={value => handleChangeTextInput('username', value)}
+            // returnKeyType="next"
+          />
         </Row>
-      </KeyboardAvoidingView>
+
+        <Row marginTop="3">
+          <ButtonV1 variant="primary" size="block" onPress={handlePressSend}>
+            Lanjut
+          </ButtonV1>
+        </Row>
+      </Row>
     </Container>
   );
 };

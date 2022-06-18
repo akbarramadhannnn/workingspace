@@ -6,8 +6,11 @@ import {
   SignInScreenV1,
   SignUpScreenV1,
   ForgotPasswordScreenV1,
+  OtpScreenV1,
+  ResetPasswordScreenV1,
 } from '@screens';
 import Routes from '@routes';
+import {setTopLevelNavigator} from '@utils/navigations';
 
 const Stack = createStackNavigator();
 
@@ -15,8 +18,13 @@ const Index = () => {
   const optionsConfig = {
     headerShadowVisible: false,
   };
+
+  const appContainerRef = navigatorRef => {
+    setTopLevelNavigator(navigatorRef);
+  };
+  
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={appContainerRef}>
       <Stack.Navigator
         initialRouteName={Routes.SignInScreen}
         screenOptions={{
@@ -31,6 +39,11 @@ const Index = () => {
         <Stack.Screen
           name={Routes.ForgotPasswordScreen}
           component={ForgotPasswordScreenV1}
+        />
+        <Stack.Screen name={Routes.OtpScreen} component={OtpScreenV1} />
+        <Stack.Screen
+          name={Routes.ResetPasswordScreen}
+          component={ResetPasswordScreenV1}
         />
       </Stack.Navigator>
     </NavigationContainer>

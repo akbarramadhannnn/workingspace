@@ -9,6 +9,7 @@ import {
   TextInputWrapper,
   TextInput,
   RightImage,
+  OtpTextInput,
 } from './InputStyled';
 
 const Index = ({
@@ -21,6 +22,9 @@ const Index = ({
   onChangeText = () => {},
   secureTextEntry = false,
   returnKeyType = 'next',
+  type = '',
+  refInput,
+  name,
 }) => {
   return (
     <Container>
@@ -31,17 +35,32 @@ const Index = ({
         </JustifyContent>
       )}
 
-      <TextInputWrapper>
-        <TypographyV1 type="label">{label}</TypographyV1>
-        <TextInput
+      {type === 'otp' ? (
+        <OtpTextInput
+          ref={el => (refInput.current[name] = el)}
+          keyboardType="number-pad"
           placeholder={placeholder}
           value={value}
           onChangeText={value => onChangeText(value)}
           secureTextEntry={secureTextEntry}
           returnKeyType={returnKeyType}
           placeholderTextColor={Platform.OS == 'android' ? '#d3d3d3' : null}
+          maxLength={1}
         />
-      </TextInputWrapper>
+      ) : (
+        <TextInputWrapper>
+          <TypographyV1 type="label">{label}</TypographyV1>
+          <TextInput
+            ref={refInput}
+            placeholder={placeholder}
+            value={value}
+            onChangeText={value => onChangeText(value)}
+            secureTextEntry={secureTextEntry}
+            returnKeyType={returnKeyType}
+            placeholderTextColor={Platform.OS == 'android' ? '#d3d3d3' : null}
+          />
+        </TextInputWrapper>
+      )}
 
       {rightImage && (
         <JustifyContent>
