@@ -9,6 +9,7 @@ import {
 } from '@components';
 import {Container, Row} from '@layout';
 import Routes from '@routes';
+import SvgIcons from '@assets/SvgIcons';
 
 const Index = props => {
   const {navigation} = props;
@@ -32,9 +33,8 @@ const Index = props => {
         <Row marginTop="3">
           <InputV1
             refInput={refInput}
-            label="Email"
-            leftImage={require('@assets/images/Message.png')}
-            placeholder="masukkan email"
+            leftImage={<SvgIcons.EmailBoldGray />}
+            placeholder="email"
             // value={username}
             // onChangeText={value => handleChangeTextInput('username', value)}
             // returnKeyType="next"

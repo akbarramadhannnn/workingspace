@@ -4,7 +4,7 @@ import {wp, hp, normalize} from '@utils/responsiveScreen';
 
 export const Container = styled.View`
   width: 100%;
-  background-color: ${colors.primary};
+  background-color: ${colors.accentViolet.primary};
   height: ${wp(45)}px;
   padding-horizontal: ${hp(1.5)}px;
   // padding-vertical: ${hp(.4)}px;

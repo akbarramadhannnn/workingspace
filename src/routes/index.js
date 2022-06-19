@@ -5,6 +5,7 @@ const routes = {
   ForgotPasswordScreen: 'ForgotPassword',
   OtpScreen: 'Otp',
   ResetPasswordScreen: 'ResetPassword',
+  WorkingSpaceProfileScreen: 'WorkingSpaceProfileScreen',
 };
 
 export default routes;

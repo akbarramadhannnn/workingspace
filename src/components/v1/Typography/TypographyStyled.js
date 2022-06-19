@@ -16,7 +16,9 @@ export const Text = styled.Text`
     css`
       font-size: ${normalize(14)}px;
       font-family: Poppins-Medium;
-      color: ${props.isDisabled ? colors.lightgrey : colors.primary};
+      color: ${props.isDisabled
+        ? colors.lightgrey
+        : colors.accentViolet.primary};
     `}
 
   ${props =>
@@ -26,10 +28,21 @@ export const Text = styled.Text`
       font-family: Poppins-Medium;
       color: ${props =>
         props.variant === 'primary'
-          ? colors.primary
+          ? colors.accentViolet.primary
           : props.variant === 'secondary'
-          ? colors.lightViolet
-          : colors.textcolor};
+          ? colors.greyscale.textSecondary
+          : props.variant === 'tertiary'
+          ? colors.greyscale.textTertiary
+          : colors.greyscale.textPrimary};
+    `}
+
+    ${props =>
+    props.type === 'title' &&
+    css`
+      font-size: ${normalize(16)}px;
+      font-family: Poppins-Bold;
+      font-weight: 700;
+      color: ${colors.greyscale.textPrimary};
     `}
 
   text-align: ${props => (props.textAlign ? props.textAlign : 'left')};

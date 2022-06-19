@@ -7,6 +7,7 @@ import Add from './svgs/Tab/Add.svg';
 import Document from './svgs/Tab/Document.svg';
 import Setting from './svgs/Tab/Setting.svg';
 import Arrow from './svgs/arrow.svg';
+import ArrowGrey from './svgs/Arrow/ArrowGrey.svg';
 import ArrowBack from './svgs/arrowblack.svg';
 // import ActiveCalnder from './svgs/Tab/ActiveC.svg';
 import Time from './svgs/Tab/TimeSquare.svg';
@@ -131,7 +132,36 @@ import Plus from '../assets/svgs/plus.svg';
 import BankArt from '../assets/svgs/BankI.svg';
 import Arrow2 from  '../assets/svgs/Arrow2.svg';
 
+// === New ===
+// Eye
+import EyeGray from './svgs/Eye/EyeGray.svg';
+import EyeCloseGray from './svgs/Eye/EyeCloseGray.svg';
+import EyeBoldGray from './svgs/Eye/EyeBoldGray.svg';
+import EyeCloseBoldGray from './svgs/Eye/EyeCloseBoldGray.svg';
+// Lock
+import LockBoldGray from './svgs/Lock/LockBoldGray.svg';
+// User
+import UserBoldGray from './svgs/User/UserBoldGray.svg';
+import UsernameBoldGray from './svgs/User/UsernameBoldGray.svg';
+// Email
+import EmailBoldGray from './svgs/Email/EmailBoldGray.svg';
+// Arrow
+import ArrowLeftBoldGrey from './svgs/Arrow/ArrowLeftBoldGrey.svg';
+import ArrowLeftBoldWhite from './svgs/Arrow/ArrowLeftBoldWhite.svg';
+
 export default {
+  // New
+  EyeGray,
+  EyeCloseGray,
+  EyeBoldGray,
+  EyeCloseBoldGray,
+  LockBoldGray,
+  UserBoldGray,
+  UsernameBoldGray,
+  EmailBoldGray,
+  ArrowLeftBoldGrey,
+  ArrowLeftBoldWhite,
+  //
   MapLocation,
   MapClose,
   MapSetting,
@@ -203,6 +233,7 @@ export default {
   Setting,
   // ActiveCalnder,
   Arrow,
+  ArrowGrey,
   ArrowBack,
   Time,
 

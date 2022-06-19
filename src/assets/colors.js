@@ -15,7 +15,6 @@ const colors = {
   red: '#FF726D',
   skyBlue: '#33C1FF',
 
- 
   background: '#E5E5E5',
   theme: '#FD8839',
   tabPlusShadow: 'rgba(254, 80, 80, 0.12)',
@@ -43,7 +42,26 @@ const colors = {
   lighttheme: '#ffebd8',
   haircutshadow: '#313C6415',
   viewbox: '#FD883920',
-  
+  // New
+  background: {
+    darken: '#F8F8F8',
+  },
+  greyscale: {
+    textPrimary: '#181818',
+    textSecondary: '#5c5c5c',
+    textTertiary: '#747474',
+    icons: '#7c7b7b',
+    stroke: '#d7d7d7',
+    dividers: '#ededed',
+    disabledText: '#8a8a8a',
+    disabledBg: '#efefef',
+  },
+  accentViolet: {
+    primary: '#2d5bff',
+    secondary: '#6284fd',
+    tertiary: '#96adff',
+    quaternary: '#ecf0ff',
+  },
 };
 
 export default colors;

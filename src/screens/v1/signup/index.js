@@ -8,6 +8,7 @@ import {
 } from '@components';
 import {Container, Row} from '@layout';
 import Routes from '@routes';
+import SvgIcons from '@assets/SvgIcons';
 
 const Index = props => {
   const {navigation} = props;
@@ -43,11 +44,10 @@ const Index = props => {
         <BackgroundTopV1 title="Daftar" isHeader={true} />
       </Row>
       <KeyboardAvoidingWrapperV1>
-        <Row marginHorizontal={12}>
+        <Row marginHorizontal={1.5}>
           <Row marginTop={3}>
             <InputV1
-              label="Nama Lengkap"
-              leftImage={require('@assets/images/Fullname-1.png')}
+              leftImage={<SvgIcons.UserBoldGray />}
               placeholder="masukkan nama lengkap"
               value={fullName}
               onChangeText={value => handleChangeTextInput('fullname', value)}
@@ -57,8 +57,7 @@ const Index = props => {
 
           <Row marginTop={3}>
             <InputV1
-              label="Alamat Email"
-              leftImage={require('@assets/images/Message.png')}
+              leftImage={<SvgIcons.EmailBoldGray />}
               placeholder="masukkan alamat email"
               value={email}
               onChangeText={value => handleChangeTextInput('email', value)}
@@ -68,9 +67,8 @@ const Index = props => {
 
           <Row marginTop={3}>
             <InputV1
-              label="Nama Pengguna"
-              leftImage={require('@assets/images/Person.png')}
-              placeholder="masukkan nama pengguna"
+              leftImage={<SvgIcons.UsernameBoldGray />}
+              placeholder="masukkan username pengguna"
               value={username}
               onChangeText={value => handleChangeTextInput('username', value)}
               returnKeyType="next"
@@ -79,12 +77,13 @@ const Index = props => {
 
           <Row marginTop={3}>
             <InputV1
-              label="Kata Sandi"
-              leftImage={require('@assets/images/Lock.png')}
+              leftImage={<SvgIcons.LockBoldGray />}
               rightImage={
-                hidePassword
-                  ? require('@assets/images/eyeoff.png')
-                  : require('@assets/images/eye.png')
+                hidePassword ? (
+                  <SvgIcons.EyeCloseBoldGray />
+                ) : (
+                  <SvgIcons.EyeBoldGray />
+                )
               }
               placeholder="masukkan kata sandi"
               value={password}

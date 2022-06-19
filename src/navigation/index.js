@@ -8,6 +8,7 @@ import {
   ForgotPasswordScreenV1,
   OtpScreenV1,
   ResetPasswordScreenV1,
+  WorkingSpaceProfileV1,
 } from '@screens';
 import Routes from '@routes';
 import {setTopLevelNavigator} from '@utils/navigations';
@@ -22,7 +23,7 @@ const Index = () => {
   const appContainerRef = navigatorRef => {
     setTopLevelNavigator(navigatorRef);
   };
-  
+
   return (
     <NavigationContainer ref={appContainerRef}>
       <Stack.Navigator
@@ -44,6 +45,10 @@ const Index = () => {
         <Stack.Screen
           name={Routes.ResetPasswordScreen}
           component={ResetPasswordScreenV1}
+        />
+        <Stack.Screen
+          name={Routes.WorkingSpaceProfileScreen}
+          component={WorkingSpaceProfileV1}
         />
       </Stack.Navigator>
     </NavigationContainer>

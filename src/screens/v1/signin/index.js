@@ -6,10 +6,11 @@ import {
   ButtonV1,
   SocialMediaListV1,
   BackgroundTopV1,
-  KeyboardAvoidingWrapperV1,
+  DividersV1,
 } from '@components';
 import {Container, Row} from '@layout';
 import Routes from '@routes';
+import SvgIcons from '@assets/SvgIcons';
 
 const Index = props => {
   const {navigation} = props;
@@ -37,6 +38,10 @@ const Index = props => {
     navigation.navigate(Routes.SignUpScreen);
   }, [navigation]);
 
+  const handlePressLogin = useCallback(() => {
+    navigation.navigate(Routes.WorkingSpaceProfileScreen);
+  }, [navigation]);
+
   return (
     <Container>
       <Row>
@@ -58,9 +63,8 @@ const Index = props => {
           <Row>
             <Row marginBottom={3}>
               <InputV1
-                label="Nama Pengguna atau Email"
-                leftImage={require('@assets/images/Person.png')}
-                placeholder="masukkan nama pengguna atau email"
+                leftImage={<SvgIcons.EmailBoldGray />}
+                placeholder="email atau username"
                 value={username}
                 onChangeText={value => handleChangeTextInput('username', value)}
                 returnKeyType="next"
@@ -69,14 +73,15 @@ const Index = props => {
 
             <Row marginBottom={2}>
               <InputV1
-                label="Kata Sandi"
-                leftImage={require('@assets/images/Lock.png')}
+                leftImage={<SvgIcons.LockBoldGray />}
                 rightImage={
-                  hidePassword
-                    ? require('@assets/images/eyeoff.png')
-                    : require('@assets/images/eye.png')
+                  hidePassword ? (
+                    <SvgIcons.EyeCloseBoldGray />
+                  ) : (
+                    <SvgIcons.EyeBoldGray />
+                  )
                 }
-                placeholder="masukkan kata sandi"
+                placeholder="kata sandi"
                 value={password}
                 onChangeText={value => handleChangeTextInput('password', value)}
                 secureTextEntry={hidePassword}
@@ -93,38 +98,13 @@ const Index = props => {
           </Row>
 
           <Row>
-            <ButtonV1 variant="primary" size="block">
+            <ButtonV1 variant="primary" size="block" onPress={handlePressLogin}>
               Masuk
             </ButtonV1>
           </Row>
 
           <Row>
-            <Row
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-              <View
-                style={{
-                  flex: 1,
-                  height: 0.4,
-                  backgroundColor: '#d3d3d3',
-                  marginRight: 10,
-                }}
-              />
-              <TypographyV1 type="text" textAlign="center" variant="secondary">
-                Atau
-              </TypographyV1>
-              <View
-                style={{
-                  flex: 1,
-                  height: 0.4,
-                  backgroundColor: '#d3d3d3',
-                  marginLeft: 10,
-                }}
-              />
-            </Row>
+            <DividersV1 text="atau" />
           </Row>
 
           <Row>

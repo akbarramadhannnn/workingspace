@@ -9,6 +9,7 @@ import {
 } from '@components';
 import {Container, Row} from '@layout';
 import Routes from '@routes';
+import SvgIcons from '@assets/SvgIcons';
 
 const Index = props => {
   const {navigation} = props;
@@ -27,8 +28,8 @@ const Index = props => {
         <Row>
           <InputV1
             label="Password Baru"
-            leftImage={require('@assets/images/Lock.png')}
-            placeholder="masukkan password baru"
+            leftImage={<SvgIcons.LockBoldGray />}
+            placeholder="password baru"
             // value={username}
             // onChangeText={value => handleChangeTextInput('username', value)}
             // returnKeyType="next"
@@ -38,8 +39,8 @@ const Index = props => {
         <Row marginTop={3}>
           <InputV1
             label="Konfirmasi Password Baru"
-            leftImage={require('@assets/images/Lock.png')}
-            placeholder="masukkan konfirmasi password baru"
+            leftImage={<SvgIcons.LockBoldGray />}
+            placeholder="konfirmasi password baru"
             // value={username}
             // onChangeText={value => handleChangeTextInput('username', value)}
             // returnKeyType="next"

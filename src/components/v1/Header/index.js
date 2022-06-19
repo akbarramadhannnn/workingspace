@@ -5,19 +5,30 @@ import SvgIcons from '@assets/SvgIcons';
 import {pop} from '@utils/navigations';
 import {Container, Title} from './HeaderStyled';
 
-const Index = ({textColorHeader, textHeader}) => {
+const Index = ({
+  background,
+  paddingHorizontal,
+  textColorHeader,
+  textHeader,
+  colorIcon,
+}) => {
   const handlePress = useCallback(() => {
     pop();
   }, []);
   return (
-    <Container>
+    <Container paddingHorizontal={paddingHorizontal} background={background}>
       <TouchableOpacity
         onPress={handlePress}
         style={{
-          marginRight: wp(2),
-          marginLeft: -3.5
+          marginRight: wp(1),
+          marginLeft: -2.5,
         }}>
-        <SvgIcons.Arrow width={wp(8)} height={wp(8)} />
+        {colorIcon === 'grey' && (
+          <SvgIcons.ArrowLeftBoldGrey width={wp(8)} height={wp(8)} />
+        )}
+        {!colorIcon && (
+          <SvgIcons.ArrowLeftBoldWhite width={wp(8)} height={wp(8)} />
+        )}
       </TouchableOpacity>
 
       {textHeader && (

@@ -1,21 +1,17 @@
-import React, {memo} from 'react';
+import React, {memo, useCallback, useState} from 'react';
 import {TouchableOpacity} from 'react-native';
 import {TypographyV1} from '@components';
 import {
   Container,
   JustifyContent,
-  LeftImage,
-  Divider,
   TextInputWrapper,
   TextInput,
-  RightImage,
   OtpTextInput,
 } from './InputStyled';
 
 const Index = ({
   leftImage,
   placeholder = '',
-  label = '',
   rightImage,
   onPressRight = () => {},
   value = '',
@@ -26,14 +22,19 @@ const Index = ({
   refInput,
   name,
 }) => {
+  const [isFocus, setIsFocus] = useState(false);
+
+  const handleOnFocus = useCallback(() => {
+    setIsFocus(true);
+  }, []);
+
+  const handleOnBlur = useCallback(() => {
+    setIsFocus(false);
+  }, []);
+
   return (
-    <Container>
-      {leftImage && (
-        <JustifyContent>
-          <LeftImage source={leftImage} resizeMode="stretch" />
-          <Divider />
-        </JustifyContent>
-      )}
+    <Container isFocus={isFocus}>
+      {leftImage && <JustifyContent>{leftImage}</JustifyContent>}
 
       {type === 'otp' ? (
         <OtpTextInput
@@ -44,12 +45,11 @@ const Index = ({
           onChangeText={value => onChangeText(value)}
           secureTextEntry={secureTextEntry}
           returnKeyType={returnKeyType}
-          placeholderTextColor={Platform.OS == 'android' ? '#d3d3d3' : null}
+          placeholderTextColor={'#747474'}
           maxLength={1}
         />
       ) : (
         <TextInputWrapper>
-          <TypographyV1 type="label">{label}</TypographyV1>
           <TextInput
             ref={refInput}
             placeholder={placeholder}
@@ -57,7 +57,10 @@ const Index = ({
             onChangeText={value => onChangeText(value)}
             secureTextEntry={secureTextEntry}
             returnKeyType={returnKeyType}
-            placeholderTextColor={Platform.OS == 'android' ? '#d3d3d3' : null}
+            placeholderTextColor={'#747474'}
+            autoFocus={isFocus}
+            onFocus={handleOnFocus}
+            onBlur={handleOnBlur}
           />
         </TextInputWrapper>
       )}
@@ -65,7 +68,7 @@ const Index = ({
       {rightImage && (
         <JustifyContent>
           <TouchableOpacity onPress={onPressRight}>
-            <RightImage source={rightImage} resizeMode="stretch" />
+            {rightImage}
           </TouchableOpacity>
         </JustifyContent>
       )}

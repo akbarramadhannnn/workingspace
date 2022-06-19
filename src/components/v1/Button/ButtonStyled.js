@@ -15,7 +15,7 @@ export const Button = styled.Pressable`
     props.variant === 'primary' &&
     css`
       width: 100%;
-      background: ${props.isDisabled ? colors.lightgrey : colors.primary};
+      background: ${props.isDisabled ? colors.lightgrey : colors.accentViolet.primary};
       padding-vertical: ${isAndroid ? `${hp(2)}px` : `${hp(1.5)}px`};
       border-radius: ${wp(3)}px;
       align-items: center;
